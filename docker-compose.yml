@@ -15,6 +15,8 @@ services:
     restart: unless-stopped
     volumes:
       - ./grafana/provisioning:/etc/grafana/provisioning
+      # custom.ini is at /etc/grafana/grafana.ini in docker images. Actual grafana.ini is at /usr/share/grafana
+      - ./grafana/custom.ini:/etc/grafana/grafana.ini
       - ./data/grafana:/var/lib/grafana
     ports:
       - 3000:3000
